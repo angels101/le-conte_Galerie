@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,4 +8,12 @@
 <body>
     <h1>Welcome de leconte'</h1>
 </body>
-</html>
+</html> -->
+{% extends 'gallery/base.html' %}
+    {{block.super }}
+    {% endblock style %}
+
+    {{% block content %}}
+    {{ block.super }}
+    <h2>Welcome to the homepage</h2>
+    {% endblock content %}
