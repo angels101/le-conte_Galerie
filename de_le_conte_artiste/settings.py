@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gallery'
+    'bootstrap'
+    'cloudinary'
+
 ]
 
 MIDDLEWARE = [
@@ -122,11 +128,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL =  '/static/'
 cloudinary.config(
-  cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
-  api_key = os.environ.get('CLOUDINARY_API_KEY'), 
-  api_secret = os.environ.get
-  ('CLOUDINARY_API_SECRET')
+    cloud_name = os.environ.get
+    ('CLOUDINARY_CLOUD_NAME'),  
+    api_key =os.environ.get('CLOUDINARY_API_KEY'), 
+    api_secret = os.environ.get
+    ('CLOUDINARY_API_SECRET') 
 )
+
+
+
 
