@@ -1,11 +1,12 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
 {{block.super}}
+{% load cloudinary %}
 
 <div class="jumbotron jumbotron bg-cover text-center img-fluid">
    <div class="overlay"></div>
    <div class="container">
-      <h1 style="padding-top: 85px; font-family: 'Montserrat', sans-serif; font-size: 6em;">Flickr</h1>
+      <h1 style="padding-top: 85px; font-family: 'Montserrat', sans-serif; font-size: 6em;">La_Mada</h1>
       <p>Le_Conte_Galeriee.</p>
       <p>Pictorial La Mada</p>
    </div>
@@ -14,9 +15,9 @@
    <div class="row">
       {% for image in images %}
       <div class="col-md-4">
-         <a href="{{image.image_url.url}}" data-fancybox="images" data-buttons='["zoom","slideShow","fullScreen","thumbs","share","close"]'
-         data-caption=    
-          <!---hhhhh---->
+         <img src="{{image.image_url.url}}" alt="" data-fancybox="images" data-buttons='["zoom","slideShow","fullScreen","thumbs","share","close"]'>
+         
+   
             <p>
                {% for category in image.categories.all %}
                <span class="btn btn-outline-light btn-sm" style="font-size:1em;">{{category}}</span>
@@ -26,6 +27,8 @@
                   More Info
                 </button>
                 <!-- Modal -->
+
+                {% for image in images %}
                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                      <div class="modal-content">
@@ -47,12 +50,15 @@
                      </div>
                   </div>
                 </div>
+               {% endfor %} 
          <!---->
             <img src="{{image.images.jpeg}}" alt="" class="img-fluid mb-4 pb-1">
           </a>
       </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
       <script type="text/javascript">
+
          function myFunction() {
             /* Get the text field */
             var copyText = document.getElementById("{{image.id}}-url");
@@ -68,7 +74,7 @@
          }
          </script>
       {% endfor %}
-      
+     
    </div>
 </div>
 

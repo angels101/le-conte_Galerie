@@ -15,6 +15,10 @@ import cloudinary
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import cloudinary.uploader
+import cloudinary.api
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -45,11 +49,11 @@ INSTALLED_APPS = [
 
 
 
-MODE=config("MODE", default="dev")
-SECRET_KEY = config('SECRET_KEY')
+MODE=config("MODE", default="prod")
+#SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
-if config('MODE')=="dev":
+if config('MODE')=="prod":
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -74,7 +78,7 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -183,4 +187,5 @@ cloudinary.config(
 cloud_name = "angels101", 
 api_key = "364562672494657", 
 api_secret = "fLfhDLbTPmNxMhoPDq8xVkHhq5A" 
+#private_cdn = 'True'
 ) 

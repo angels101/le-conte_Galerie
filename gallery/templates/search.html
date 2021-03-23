@@ -1,10 +1,10 @@
-{%extends './gallery/base.html'%}
+{%extends 'base.html'%}
 
 {% block content %}
     {{block.super}}
     {% load cloudinary %}
     <div class="jumbotron text-center">
-        <h1 style="padding-top: 85px; font-family: 'Montserrat', sans-serif; font-size: 6em;">Flickr</h1>
+        <h1 style="padding-top: 85px; font-family: 'Montserrat', sans-serif; font-size: 6em;">La_Mada</h1>
         <p style="font-family: 'Montserrat', san-serif; font-size:30px;">{{category|capfirst}} Images</p>
     </div>
     <div class="container">

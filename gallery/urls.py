@@ -5,7 +5,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.main_flikr,name='main_flikr'),
-    path('location/(\d+',views.location, name='location'),
+    path('location/<str:location>/',views.location, name='location'),
     path('search/',views.search, name='search'),
    
 ]

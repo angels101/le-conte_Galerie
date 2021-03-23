@@ -6,7 +6,7 @@ import datetime as dt
 def main_flikr(request):
     images= Image.all_images()
     location = Location.objects.all()
-    return render(request, './gallery/index.html',{"images":images,"locations":location})
+    return render(request,'index.html',{"images":images,"locations":location})
 
 def location(request,location):
     locations = Location.objects.all()
@@ -18,4 +18,5 @@ def search(request):
     if 'category' in request.GET and request.GET["category"]:
         search_term = request.GET.get("category")
         searched_images = Image.search_by_category(search_term)
-    return render(request,'search.html',{"images":searched_images,"category":search_term})
+        return render(request,'search.html',{"images":searched_images,"category":search_term})
+
