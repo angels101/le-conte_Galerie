@@ -27,15 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SECRET_KEY='django-insecure-r@cn%kl2j9@+kv0_q&*syr#1uph65ve5%dc*a&_ojvu)23b@%-'
-DEBUG=True
-DB_NAME='gallery'
-DB_USER='afriq'
-DB_PASSWORD=''
-DB_HOST='127.0.0.1'
-MODE='dev'
-ALLOWED_HOSTS='gallery-la-mada.herokuapp.com'
-DISABLE_COLLECTSTATIC=1
+
 # Application definition
 
 INSTALLED_APPS = [
