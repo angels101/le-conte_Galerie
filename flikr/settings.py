@@ -173,7 +173,7 @@ django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
-
+h
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
