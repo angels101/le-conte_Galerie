@@ -15,7 +15,8 @@
       {% for image in images %}
       <div class="col-md-4">
          <a href="{{image.image_url.url}}" data-fancybox="images" data-buttons='["zoom","slideShow","fullScreen","thumbs","share","close"]'
-         data-caption='
+         data-caption=    
+          <!---hhhhh---->
             <p>
                {% for category in image.categories.all %}
                <span class="btn btn-outline-light btn-sm" style="font-size:1em;">{{category}}</span>
@@ -39,14 +40,14 @@
                            <p class = "text-dark text-left" >{{image.description}}</p>
                          </div>
                         <div class="modal-footer">
-                           <input class="form-control input-sm" type="textarea"  value="https://max-gallery.herokuapp.com{{image.image_url.url}}" id="{{image.id}}-url" >
+                           <input class="form-control input-sm" type="textarea"  value="https://gallery-la-mada.herokuapp.com{{image.image_url.url}}" id="{{image.id}}-url" >
                            <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close</button>
                            <button class="btn btn-outline-dark btn-sm" onclick="myFunction("{{image.id}}-url);return false;">Copy URL</button>
                          </div>
                      </div>
                   </div>
                 </div>
-         '>
+         <!---->
             <img src="{{image.images.jpeg}}" alt="" class="img-fluid mb-4 pb-1">
           </a>
       </div>

@@ -21,7 +21,7 @@ from decouple import config,Csv
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-r@cn%kl2j9@+kv0_q&*syr#1uph65ve5%dc*a&_ojvu)23b@%-'
-
+SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -175,7 +175,7 @@ django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
-h
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
