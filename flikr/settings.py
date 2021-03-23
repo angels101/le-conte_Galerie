@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'gallery',
     'bootstrap3',
     'cloudinary',
+    'decouple',
 ]
 
 MODE=config("MODE", default="dev")
