@@ -1,1 +1,2 @@
-flikr.wsgi.application
+
+web: gunicorn gallery.wsgi

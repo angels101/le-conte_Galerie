@@ -1,0 +1,44 @@
+{%extends './gallery/base.html'%}
+
+{% block content %}
+    {{block.super}}
+    {% load cloudinary %}
+    <div class="jumbotron text-center">
+        <h1 style="padding-top: 85px; font-family: 'Montserrat', sans-serif; font-size: 6em;">Flickr</h1>
+        <p style="font-family: 'Montserrat', san-serif; font-size:30px;">{{category|capfirst}} Images</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="row" style="padding-top: 30px;">
+            </div>
+            <div class="row">
+                {% for image in images %}
+                <div class="col-md-4">
+<!------------------------------------------------------------------------->
+
+ <img src="{{image.image_url.url}}" alt="" class="img-fluid mb-4 pb-1">
+                    </a>
+                </div>
+          
+                <script type="text/javascript">
+                   function myFunction() {
+                      /* Get the text field */
+                      var copyText = document.getElementById("{{image.id}}-url");
+          
+                      /* Select the text field */
+                      copyText.select();
+          
+                      /* Copy the text inside the text field */
+                      document.execCommand("copy");
+          
+                      /* Alert the copied text */
+                      alert("Copied the text: " + copyText.value);
+                   }
+                   </script>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
