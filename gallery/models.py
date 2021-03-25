@@ -3,7 +3,7 @@ import cloudinary
 from cloudinary.models import CloudinaryField 
 import datetime as dt 
 # Create your models here.
-from django.db import models
+#from django.db import models
 
 # Create your models here.
 class categories(models.Model):

@@ -14,7 +14,7 @@ from pathlib import Path
 import cloudinary
 import django_heroku
 import dj_database_url
-from decouple import config,Csv
+from decouple import config, Csv
 import cloudinary.uploader
 import cloudinary.api
 
@@ -24,7 +24,7 @@ import cloudinary.api
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-r@cn%kl2j9@+kv0_q&*syr#1uph65ve5%dc*a&_ojvu)23b@%-'
+SECRET_KEY = 'django-insecure-r@cn%kl2j9@+kv0_q&*syr#1uph65ve5%dc*a&_ojvu)23b@%-'
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'gallery',
     'bootstrap3',
     'cloudinary',
-   'decouple',
+   
 ]
 
 
@@ -53,7 +53,7 @@ MODE=config("MODE", default="prod")
 #SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
-if config('MODE')=="prod":
+if config('MODE')=="dev":
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',

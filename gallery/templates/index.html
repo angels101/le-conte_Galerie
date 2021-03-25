@@ -15,10 +15,8 @@
    <div class="row">
       {% for image in images %}
       <div class="col-md-4">
-         <img src="{{image.image_url.url}}" alt="" data-fancybox="images" data-buttons='["zoom","slideShow","fullScreen","thumbs","share","close"]'>
-         
-   
-            <p>
+         <img src="{{image.image_url.url}}" alt="" data-fancybox="images" data-buttons='["zoom","slideShow","fullScreen","thumbs","share","close"]' style="height=200px; width=200px;">
+         <p>
                {% for category in image.categories.all %}
                <span class="btn btn-outline-light btn-sm" style="font-size:1em;">{{category}}</span>
                {% endfor %}
@@ -26,6 +24,7 @@
             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter">
                   More Info
                 </button>
+                </div>
                 <!-- Modal -->
 
                 {% for image in images %}
