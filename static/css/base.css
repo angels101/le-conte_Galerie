@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600');
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.scrollmenu {
+    background-color: #f8f9fa;
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: grey;
+    text-align: center;
+    padding: 4px 30px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+div.scrollmenu a:hover {
+    color: black;
+}
+
+.image {
+    max-width: 850px!important;
+}
+.jumbotron {
+    background-image: url(./images/beautiful.jpeg);
+    color: #55404b;
+    height: 500px;
+    width: 100%;
+    border-radius: 0;
+}
+
+.navbar {
+    color: #3d7aaf;
+}   
+
+.nav-colored { background-color:#000; }
+.nav-transparent { background-color:transparent;}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+.location-heading {
+    color: #3d7aaf;
+}
+
+
+.border-light{
+    border-style: solid;
+    overflow: hidden;
+}
+
+

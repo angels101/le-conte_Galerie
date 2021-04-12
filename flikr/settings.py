@@ -15,6 +15,8 @@ import django_heroku
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import dj_database_url
+from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,8 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dmaan-dl%ly5txr2h2+2xix%9qla_n+4$q7nld!i-ha1s72_t#'
-#SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY = 'django-insecure-dmaan-dl%ly5txr2h2+2xix%9qla_n+4$q7nld!i-ha1s72_t#'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -44,6 +46,13 @@ INSTALLED_APPS = [
 
     #APPS
     'gallery',
+
+
+    ##3rd party.
+    'bootstrap3',
+    'cloudinary',
+    'cloudinary_storage',
+    
 ]
 
 MIDDLEWARE = [
@@ -77,7 +86,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'flikr.wsgi.application'
 
+MODE=config("MODE", default="dev")
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+# development
+if config('MODE')=="dev":
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+           'HOST': config('DB_HOST'),
+           'PORT': '',
+       }
+       
+   }
+# production
+else:
+   DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+   }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -151,6 +187,12 @@ django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#cloudinary.config( 
+#  cloud_name = "angels101", 
+#  api_key = "364562672494657", 
+#  api_secret = "fLfhDLbTPmNxMhoPDq8xVkHhq5A" 
+#)
+
 
   #add config 
 cloudinary.config(
@@ -159,3 +201,5 @@ cloudinary.config(
   api_secret = os.environ.get('API_SECRET'),
   secure = True
 )
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
